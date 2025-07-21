@@ -5,6 +5,4 @@ date:   2025-07-21 17:44:36
 categories: Github 问题
 ---
 
-  在记录自己第一篇博客**20250718第一篇博客**后, 提交文本并在**Actions**部署和发布结束后,  
-  打开域名发现第一篇博客并未更新到页面中. 咨询[Chat GPT](https://chatgpt.com "Chat GPT")后, 发现Jekyll仅识别文件夹中以**YYYY-MM-DD-"格式的markdown文件,重新命名并提交
-发布后页面正常显示.
+  在记录自己第一篇博客**20250718第一篇博客**后, 提交文本并在**Actions**部署和发布结束后, 打开域名发现第一篇博客并未更新到页面中. 咨询[Chat GPT](https://chatgpt.com "Chat GPT")后, 发现Jekyll仅识别文件夹中以**YYYY-MM-DD-"格式的markdown文件,重新命名并提交发布后页面正常显示.
