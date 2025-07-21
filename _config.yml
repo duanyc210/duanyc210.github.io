@@ -56,3 +56,5 @@ plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
 remote_theme: duanyc210/duanyc210.github.io
+future: true
+
