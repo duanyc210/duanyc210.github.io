@@ -1,0 +1,68 @@
+---
+layout: post
+title:  "LTE原理与实现之核心网"
+date:   2025-07-24
+categories: 学习 LTE 核心网
+---
+
+# LTE核心网EPC
+EPC主要包含五大网元,结构如下：  
+![EPC结构](/assets/pictures/EPC_structure.png)  
+> MME: Monility Management Entity, 移动性管理实体, EPC中的关键网元, 负责管理和控制  
+> SGW: Serving Gate Way, 服务网关, 负责处理业务数据流  
+> PGW: PDN(分组数据网) Gate Way, 负责管理与PDN的接口, 通常指Internet  
+> HSS: Home Subscribers Server, 归属用户服务器, 是HLR的升级,存储用户信息  
+> PCRF: Policy and Charging Rules Function, 策略与计费规则功能, 与服务质量(QoS)的控制相关
+
+## MME
+MME类似于SGSN的控制面,负责处理用户的业务心灵,实现对移动用户的管理. 与HSS通过S6a接口连接, 与SGW通过S11接口连接, 与eNB通过S1-MME接口连接, 的主要功能如下:  
+- 用户鉴权
+- 移动性管理(巡护, 切换)
+- 漫游控制
+- 网关选择(MME负责指派处理用户业务的SGW)
+- 承载管理(用户业务数据流承载管理)
+- TA列表管理(Tracking Area, 跟踪区)
+
+## SGW
+SGW类似于SGSN的业务面,负责处理用户业务, 完成移动数据业务的承载, 主要功能如下:  
+> - 与GSM/WCDMA系统进行切换时, 充当LTE核心网的锚点
+> - 作为LTE系统内部移动性的锚点
+> - 空闲状态时缓存下行数据
+> - 数据包的路由和转发
+> - 计费
+> - 合法监听
+
+## PGW
+PGW类似于GGSN, 提供与Internet即PDN的接口, 与SGW通过S5或S8接口连接, 与PCRF通过Gx接口连接, 与PDN通过SGi接口连接, 主要功能如下:
+> - 作为外网互联的接入点
+> - 为用户分配IP地址
+> - 数据包的路由和转发
+> - 计费
+> - 策略控制执行功能
+> - 合法监听
+
+## EPC漫游处理
+就近接入: 漫游用户SGW通过S5接口与漫游地的PGW连接, 再连接互联网, 就近接入  
+回归接入: 漫游用户SGW通过S8接口与归属地的PGW连接, 再连接互联网, 回归接入
+
+# LTE无线网E-UTRAN
+![E-UTRAN结构](/assets/pictures/eutran_structure.png)
+**E-UTRAN**: Evolved Universal Terrestrial Radio Access Network, 演进型通用陆地无线接入网.  
+eNB通过X2接口互联, 通过S1-MME接口与MME连接, 通过S1-U接口与SGW连接
+![eNB结构](/assets/pictures/eNB_structure.png)  
+eNB的主要功能如下:  
+> - 小区间无线资源的管理
+> - 无线承载的控制
+> - 连接状态移动性管理
+> - 无线准入控制
+> - eNB测量报告的配置与规定
+> - 动态资源调度
+
+## LTE空中接口分层结构:
+![LTE空中接口](/assets/pictures/LTE_UU_protocol.png)  
+
+- RRC (Radio Resource Control, 无线资源控制)  
+- PDCP (Packet Data Convergence Protocol, 分组数据汇聚协议)  
+- RLC (Radio Link Control, 无线链路控制)  
+- MAC (Medium Access Control, 介质访问控制)  
+- PHY (Physical, 物理层)
