@@ -64,13 +64,15 @@ int main()
 ---
 
 # 链接
-链接语法格式，空格[超链接显示名](超链接地址 “超链接title”)  
- [Yuchen的博客](https://duanyc210.github.io "Yuchen的个人博客“)
+链接语法格式，定义[链接名称](链接地址)
+[Yuchen的博客](https://duanyc210.github.io)
+
 
 # 图片
 图片的语法格式![图片名称](图片链接 “图片title”)  
-![Yuchen的照片](/assets/pictures/portfolio.png "Yuchen的头像“)
+![Yuchen的照片](/assets/pictures/portfolio.png)
 
 # 转义字符
 需要表示原来的字符添加反斜杠\  
 \* \"
+
