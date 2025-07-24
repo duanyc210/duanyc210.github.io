@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "LTE原理与实现之核心网"
+title:  "LTE原理与实现之总体架构"
 date:   2025-07-24
 categories: 学习 LTE 核心网
 ---
